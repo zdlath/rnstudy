@@ -7,7 +7,7 @@ const HomeScreen = ({navigation}) => {
       <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[HomeScreen]</Text>
       <Button
         title="Go FirstScreen"
-        onPress={() => navigation.navigate('First')}
+        onPress={() => navigation.navigate('First', { screen_name: "[FirstScreen]" })}
       />
       <Button
         title="Go SecondScreen"
