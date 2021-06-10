@@ -6,6 +6,9 @@ import { enableScreens } from 'react-native-screens';
 import { default as HomeScreen } from "./src/screen/HomeScreen";
 import { default as FirstScreen } from "./src/screen/FirstScreen";
 import { default as SecondScreen } from "./src/screen/SecondScreen";
+import { default as PropsScreen } from "./src/screen/PropsScreen";
+import { default as UseStateScreen } from "./src/screen/UseStateScreen";
+import { default as UseEffectScreen } from "./src/screen/UseEffectScreen";
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -13,10 +16,13 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator  initialRouteName = "Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="First" component={FirstScreen} />
-        <Stack.Screen name="Second" component={SecondScreen} />
+      <Stack.Navigator  initialRouteName = "HomeScreen">
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="FirstScreen" component={FirstScreen} />
+        <Stack.Screen name="SecondScreen" component={SecondScreen} />
+        <Stack.Screen name="PropsScreen" component={PropsScreen} />
+        <Stack.Screen name="UseStateScreen" component={UseStateScreen} />
+        <Stack.Screen name="UseEffectScreen" component={UseEffectScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
