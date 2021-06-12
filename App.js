@@ -9,6 +9,7 @@ import { default as SecondScreen } from "./src/screen/SecondScreen";
 import { default as PropsScreen } from "./src/screen/PropsScreen";
 import { default as UseStateScreen } from "./src/screen/UseStateScreen";
 import { default as UseEffectScreen } from "./src/screen/UseEffectScreen";
+import { default as UseContextScreen } from "./src/screen/UseContextScreen";
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -23,6 +24,7 @@ function App() {
         <Stack.Screen name="PropsScreen" component={PropsScreen} />
         <Stack.Screen name="UseStateScreen" component={UseStateScreen} />
         <Stack.Screen name="UseEffectScreen" component={UseEffectScreen} />
+        <Stack.Screen name="UseContextScreen" component={UseContextScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
