@@ -25,10 +25,14 @@ const HomeScreen = ({navigation}) => {
         title="Go UseEffectScreen"
         onPress={() => navigation.navigate('UseEffectScreen')}
       />
-        <Button
-          title="Go UseContextScreen"
-          onPress={() => navigation.navigate('UseContextScreen')}
-        />
+      <Button
+        title="Go UseContextScreen"
+        onPress={() => navigation.navigate('UseContextScreen')}
+      />
+      <Button
+        title="Go UseMemoScreen"
+        onPress={() => navigation.navigate('UseMemoScreen')}
+      />
     </View>
   );
 };
