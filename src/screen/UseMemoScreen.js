@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { View, Text, TextInput, Button } from 'react-native';
 
 const UseMemoScreen = () => {
@@ -6,7 +6,6 @@ const UseMemoScreen = () => {
   const [list, setList] = useState([]);
 
   const onInsert = () => {
-    console.log('number : ', number);
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber('');
@@ -18,10 +17,11 @@ const UseMemoScreen = () => {
     const sum = numbers.reduce((a, b) => a + b);
     return sum / numbers.length;
   };
+  const avg = useMemo(() => getAverage(list), [list]);
 
   return (
     <View style={{flex: 1}}>
-      <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[UseStateScreen]</Text>
+      <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[UseMemoScreen]</Text>
       <TextInput
         style={{fontSize: 30, backgroundColor: '#FFFFFF'}}
         onChangeText={setNumber}
@@ -37,7 +37,7 @@ const UseMemoScreen = () => {
         <Text style={{fontSize: 20}}>{value}  </Text>
       ))}
 
-      <Text style={{fontSize: 20}}>평균 : {getAverage(list)}</Text>
+      <Text style={{fontSize: 20}}>평균 : {avg}</Text>
     </View>
   );
 };
