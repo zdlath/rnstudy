@@ -12,6 +12,7 @@ import { default as UseEffectScreen } from "./src/screen/UseEffectScreen";
 import { default as UseContextScreen } from "./src/screen/UseContextScreen";
 import { default as UseMemoScreen } from "./src/screen/UseMemoScreen";
 import { default as UseCallbackScreen } from "./src/screen/UseCallbackScreen";
+import { default as UseRefScreen } from "./src/screen/UseRefScreen";
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ function App() {
         <Stack.Screen name="UseContextScreen" component={UseContextScreen} />
         <Stack.Screen name="UseMemoScreen" component={UseMemoScreen} />
         <Stack.Screen name="UseCallbackScreen" component={UseCallbackScreen} />
+        <Stack.Screen name="UseRefScreen" component={UseRefScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
