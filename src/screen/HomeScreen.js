@@ -33,6 +33,10 @@ const HomeScreen = ({navigation}) => {
         title="Go UseMemoScreen"
         onPress={() => navigation.navigate('UseMemoScreen')}
       />
+      <Button
+        title="Go UseCallbackScreen"
+        onPress={() => navigation.navigate('UseCallbackScreen')}
+      />      
     </View>
   );
 };
