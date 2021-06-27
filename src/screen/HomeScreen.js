@@ -41,6 +41,10 @@ const HomeScreen = ({navigation}) => {
         title="Go UseRefScreen"
         onPress={() => navigation.navigate('UseRefScreen')}
       />         
+      <Button
+        title="Go ReduxScreen"
+        onPress={() => navigation.navigate('ReduxScreen')}
+      />          
     </View>
   );
 };
