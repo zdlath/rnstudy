@@ -3,9 +3,10 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import rootReducer from './src/redux/modules/rootReducer';
+import Logger from './src/redux/middlewares/Logger';
 import { default as HomeScreen } from "./src/screen/HomeScreen";
 import { default as FirstScreen } from "./src/screen/FirstScreen";
 import { default as SecondScreen } from "./src/screen/SecondScreen";
@@ -22,8 +23,8 @@ enableScreens();
 const Stack = createStackNavigator();
 
 function App() {
-  const store = createStore(rootReducer);
-  
+  const store = createStore(rootReducer, applyMiddleware(Logger));
+
   return (
     <Provider store={store}>
       <NavigationContainer>
