@@ -18,6 +18,7 @@ import { default as UseMemoScreen } from "./src/screen/UseMemoScreen";
 import { default as UseCallbackScreen } from "./src/screen/UseCallbackScreen";
 import { default as UseRefScreen } from "./src/screen/UseRefScreen";
 import { default as ReduxScreen } from "./src/screen/ReduxScreen";
+import { default as NativeModuleScreen } from "./src/screen/NativeModuleScreen";
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -40,6 +41,7 @@ function App() {
           <Stack.Screen name="UseCallbackScreen" component={UseCallbackScreen} />
           <Stack.Screen name="UseRefScreen" component={UseRefScreen} />
           <Stack.Screen name="ReduxScreen" component={ReduxScreen} />
+          <Stack.Screen name="NativeModuleScreen" component={NativeModuleScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
