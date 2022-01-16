@@ -46,6 +46,7 @@
 		B7DCBB550F1D185AF2E2B347 /* libPods-rnstudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnstudy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73F834826EDFD550011130F /* HellowModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HellowModule.h; path = rnstudy/HellowModule.h; sourceTree = "<group>"; };
 		E73F834926EDFD550011130F /* HellowModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HellowModule.m; path = rnstudy/HellowModule.m; sourceTree = "<group>"; };
+		E792926E279454940065F948 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -131,6 +132,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E792926E279454940065F948 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* rnstudy */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* rnstudyTests */,
@@ -543,6 +545,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E792926E279454940065F948 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -608,6 +611,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E792926E279454940065F948 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
