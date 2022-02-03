@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
+import UseCallbackComponent from "./UseCallbackComponent";
 
-const UseStateScreen = () => {
+const UseCallbackScreen = () => {
   const [number, setNumber] = useState(0);
 
   const onIncrease = () => {
@@ -11,12 +12,10 @@ const UseStateScreen = () => {
     setNumber(number - 1);
   }
 
+  console.log("랜더링...");
   return (
-    <View style={{flex: 1}}>
-      <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[UseStateScreen]</Text>
-      <Text style={{fontSize: 30}}>현재 number = {number}</Text>
+    <View style={styles.screen}>
       <Button
-        style={{fontSize: 30, backgroundColor: '#FFFFFF'}}
         title="더하기"
         onPress={onIncrease}
       />
@@ -24,8 +23,16 @@ const UseStateScreen = () => {
         title="빼기"
         onPress={onDecrease}
       />
+      <UseCallbackComponent count={count} />
     </View>
   );
 };
 
-export default UseStateScreen
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: '#ffffff'
+  }
+})
+
+export default UseCallbackScreen

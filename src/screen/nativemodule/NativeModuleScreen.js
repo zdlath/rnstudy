@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, Button, NativeModules } from 'react-native';
+import React from "react";
+import { View, Button, NativeModules } from 'react-native';
 
 const NativeModuleScreen = () => {
 

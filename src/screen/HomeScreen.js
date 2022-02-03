@@ -1,17 +1,20 @@
 import React from "react";
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 
 const HomeScreen = ({navigation}) => {  
   return (
-    <View style={{flex: 1, backgroundColor: '#cccccc'}}>
-      <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[HomeScreen]</Text>
+    <View style={styles.screen}>
       <Button
-        title="Go FirstScreen"
-        onPress={() => navigation.navigate('FirstScreen', { screen_name: "[FirstScreen]" })}
+        title="Go NavigationScreen"
+        onPress={() => navigation.navigate('NavigationScreen')}
       />
       <Button
-        title="Go SecondScreen"
-        onPress={() => navigation.navigate('SecondScreen')}
+        title="Go PassingParameterScreen"
+        onPress={() => navigation.navigate('PassingParameterScreen', {
+          fromScreenId: 1,
+          fromScreenName: 'HomeScreen',
+          otherParam: 'anything you want here',
+        })}
       />    
       <Button
         title="Go PropsScreen"
@@ -38,9 +41,13 @@ const HomeScreen = ({navigation}) => {
         onPress={() => navigation.navigate('UseCallbackScreen')}
       />      
       <Button
-        title="Go UseRefScreen"
-        onPress={() => navigation.navigate('UseRefScreen')}
+        title="Go UseRefScreen1"
+        onPress={() => navigation.navigate('UseRefScreen1')}
       />         
+      <Button
+        title="Go UseRefScreen2"
+        onPress={() => navigation.navigate('UseRefScreen2')}
+      /> 
       <Button
         title="Go ReduxScreen"
         onPress={() => navigation.navigate('ReduxScreen')}
@@ -56,5 +63,12 @@ const HomeScreen = ({navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: '#ffffff'
+  }
+})
 
 export default HomeScreen

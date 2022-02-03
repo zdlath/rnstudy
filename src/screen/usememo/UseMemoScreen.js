@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
 const UseMemoScreen = () => {
   const [number, setNumber] = useState('');
@@ -17,29 +17,47 @@ const UseMemoScreen = () => {
     const sum = numbers.reduce((a, b) => a + b);
     return sum / numbers.length;
   };
+  //useMemo 미사용
+  //const avg = getAverage(list);
+
+  //useMemo 사용
   const avg = useMemo(() => getAverage(list), [list]);
 
   return (
-    <View style={{flex: 1}}>
-      <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 40}}>[UseMemoScreen]</Text>
+    <View style={styles.screen}>
       <TextInput
-        style={{fontSize: 30, backgroundColor: '#FFFFFF'}}
+        style={styles.textInput}
         onChangeText={setNumber}
         value={number}
       />
       <Button
-        style={{fontSize: 30, backgroundColor: '#FFFFFF'}}
         title="등록"
         onPress={onInsert}
       />
 
       {list.map((value, index) => (
-        <Text style={{fontSize: 20}}>{value}  </Text>
+        <Text style={styles.text}>{value}  </Text>
       ))}
 
-      <Text style={{fontSize: 20}}>평균 : {avg}</Text>
+      <Text style={styles.text}>평균 : {avg}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: '#ffffff'
+  },
+  textInput: {
+    fontSize: 20,
+    borderWidth: 1,
+    borderColor: '#000000',
+    margin: 10
+  },
+  text: {
+    fontSize: 20
+  }
+})
 
 export default UseMemoScreen

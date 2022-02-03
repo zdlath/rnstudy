@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux'
-import { increase, decrease } from '../redux/modules/counter';
-import { changeName, changeAge } from '../redux/modules/userInfo';
+import { increase, decrease } from '../../redux/modules/counter';
+import { changeName, changeAge } from '../../redux/modules/userInfo';
 
 const ReduxScreen = () => {
   // useSelector는 리덕스 스토어의 상태를 조회하는 Hook입니다.
