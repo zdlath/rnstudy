@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { StyleSheet, View, Button } from 'react-native';
-import UseCallbackComponent from "./UseCallbackComponent";
+
+function Light({ room, isOn, toggle }) {
+  console.log("Light 렌더링... ", { room, isOn });
+  return (
+    <Button
+      title={isOn? room + " ON" : room + " OFF"}
+      onPress={toggle}>
+    </Button>
+  );
+}
+Light = React.memo(Light);
 
 const UseCallbackScreen = () => {
-  const [number, setNumber] = useState(0);
+  const [masterOn, setMasterOn] = useState(false);
+  const [kitchenOn, setKitchenOn] = useState(false);
+  const [bathOn, setBathOn] = useState(false);
 
-  const onIncrease = () => {
-    setNumber(number + 1);
-  }
-  const onDecrease = () => {
-    setNumber(number - 1);
-  }
+  //useCallback 미사용
+  //const toggleMaster = () => setMasterOn(!masterOn);
+  //const toggleKitchen = () => setKitchenOn(!kitchenOn);
+  //const toggleBath = () => setBathOn(!bathOn);
 
-  console.log("랜더링...");
+  //useCallback 사용
+  const toggleMaster = useCallback(() => setMasterOn(!masterOn), [masterOn]);
+  const toggleKitchen = useCallback(() => setKitchenOn(!kitchenOn),[kitchenOn]);
+  const toggleBath = useCallback(() => setBathOn(!bathOn), [bathOn]);
+
+  console.log("UseCallbackScreen 렌더링...");
   return (
     <View style={styles.screen}>
-      <Button
-        title="더하기"
-        onPress={onIncrease}
-      />
-      <Button
-        title="빼기"
-        onPress={onDecrease}
-      />
-      <UseCallbackComponent count={count} />
+      <Light room="침실" isOn={masterOn} toggle={toggleMaster} />
+      <Light room="주방" isOn={kitchenOn} toggle={toggleKitchen} />
+      <Light room="욕실" isOn={bathOn} toggle={toggleBath} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   screen: {
