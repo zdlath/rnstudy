@@ -1,32 +1,51 @@
-//액션 타입 선언
+//Action 타입 정의
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
 
-//액션 생성함수 선언
-export const increase = () => ({ type: INCREASE });
-export const decrease = () => ({ type: DECREASE });
+//Action 생성 함수 정의
+export const createIncreaseAction = () => {
+  console.log("1. increase Action 생성 함수 호출");
+  const action = { type: INCREASE };
+  console.log("  [return] action : ", action.type);
+  return action;
+};
+export const createDecreaseAction = () => {
+  console.log("1. decrease Action 생성 함수 호출");
+  const action = { type: DECREASE };
+  console.log("  [return] action : ", action.type);
+  return action;
+};
 
-//초기값 선언
+//State 초기값 정의
 const initialState = {
     number: 0
 };
 
-//리듀서 선언
-export default function counter(state = initialState, action) {
+//Reducer 정의
+export default function counterReducer(state = initialState, action) {
+  console.log("4. counter Reducer 호출");
+  console.log("  [parameter] previoudState : ", state);
+  console.log("  [parameter] action : ", action.type);
+
+  let newState;
   switch (action.type) {
     case INCREASE:
-      console.log("[LOG] counter 리듀서의 INCREASE 액션 호출");
-      return {
+      newState = {
         ...state,
         number: state.number + 1
       };
+      break;
     case DECREASE:
-      console.log("[LOG] counter 리듀서의 DECREASE 액션 호출");
-      return {
+      newState = {
         ...state,
         number: state.number - 1
       };
+      break;
     default:
-      return state;
+      newState = state;
+      break;
   }
+
+  console.log("  [return] newState : ", newState);
+  return newState;
 }

@@ -1,39 +1,58 @@
-//액션 타입 선언
+//Action 타입 정의
 const CHANGE_NAME = 'userInfo/CHANGE_NAME';
 const CHANGE_AGE = 'userInfo/CHANGE_AGE';
 
-//액션 생성함수 선언
-export const changeName = (newName) => ({ 
+//Action 생성 함수 정의
+export const createChangeNameAction = (newName) => {
+  console.log("1. changeName Action 생성 함수 호출");
+  const action = { 
     type: CHANGE_NAME,
     newName
-});
-export const changeAge = (newAge) => ({ 
+  };
+  console.log("  [return] action : ", action.type);
+  return action;
+}
+export const crateChangeAgeAction = (newAge) => {
+  console.log("1. changeAge Action 생성 함수 호출");
+  const action = { 
     type: CHANGE_AGE,
     newAge
-});
+  };
+  console.log("  [return] action : ", action.type);
+  return action;
+}
 
-//초기값 선언
+//State 초기값 정의
 const initialState = {
     name: '임소희',
     age: 30
 };
 
-//리듀서 선언
-export default function changeUserInfo(state = initialState, action) {
+//Reducer 정의
+export default function userInfoReducer(state = initialState, action) {
+  console.log("4. userInfo Reducer 호출");
+  console.log("  [parameter] previoudState : ", state);
+  console.log("  [parameter] action : ", action.type);
+
+  let newState;
   switch (action.type) {
     case CHANGE_NAME:
-      console.log("[LOG] userInfo 리듀서의 CHANGE_NAME 액션 호출");
-      return {
+      newState = {
         ...state,
         name: action.newName
       };
+      break;
     case CHANGE_AGE:
-      console.log("[LOG] userInfo 리듀서의 CHANGE_AGE 액션 호출");
-      return {
+      newState = {
         ...state,
         age: action.newAge
       };
+      break;
     default:
-      return state;
+      newState = state;
+      break;
   }
+  
+  console.log("  [return] newState : ", newState);
+  return newState;
 }

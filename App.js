@@ -6,7 +6,8 @@ import { enableScreens } from 'react-native-screens';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import rootReducer from './src/redux/modules/rootReducer';
-import Logger from './src/redux/middlewares/Logger';
+import Middleware1 from './src/redux/middlewares/Middleware1';
+import Middleware2 from './src/redux/middlewares/Middleware2';
 import { default as HomeScreen } from "./src/screen/HomeScreen";
 import { default as NavigationScreen } from "./src/screen/navigation/NavigationScreen";
 import { default as PassingParameterScreen } from "./src/screen/passingparameter/PassingParameterScreen";
@@ -26,8 +27,13 @@ enableScreens();
 const Stack = createStackNavigator();
 
 function App() {
-  const store = createStore(rootReducer, applyMiddleware(Logger));
+  //creactStore() 함수를 이용하여 Store를 생성합니다.
+  //rootReducer를 첫번째 파라미터로 전달하며, Middleware를 두번째 파라미터로 전달합니다.
+  //const store = createStore(rootReducer);
+  const store = createStore(rootReducer, applyMiddleware(Middleware1, Middleware2));
 
+  //Provider 컴포넌트는 컴포넌트들이 Redux의 Store에 접근 가능하도록 해주는 컴포넌트입니다.  
+  //컴포넌트의 Root 위치에 Provider 컴포넌트로 감싸줍니다.  
   return (
     <Provider store={store}>
       <NavigationContainer>
