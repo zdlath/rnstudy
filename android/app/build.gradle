@@ -166,6 +166,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            if (project.hasProperty('RNSTUDY_APP_KEYSTORE_FILE')) {
+                storeFile file(RNSTUDY_APP_KEYSTORE_FILE)
+                storePassword RNSTUDY_APP_KEYSTORE_PASSWORD
+                keyAlias RNSTUDY_APP_KEY_ALIAS
+                keyPassword RNSTUDY_APP_KEY_PASSWORD
+            }
+        }        
     }
     buildTypes {
         debug {
