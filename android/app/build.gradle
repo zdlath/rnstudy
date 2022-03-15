@@ -2,10 +2,10 @@ apply plugin: "com.android.application"
 
 project.ext.envConfigFiles = [
     developdebug: "env/.env.develop",
-    developrelease: "env/.env.develop", 
+    developrelease: "env/.env.develop",
     stagedebug: "env/.env.stage",
     stagerelease: "env/.env.stage",
-    productdebug: "env/.env.product",    
+    productdebug: "env/.env.product",
     productrelease: "env/.env.product",
     anothercustombuild: ".env",
 ]
@@ -173,7 +173,7 @@ android {
                 keyAlias RNSTUDY_APP_KEY_ALIAS
                 keyPassword RNSTUDY_APP_KEY_PASSWORD
             }
-        }        
+        }
     }
     buildTypes {
         debug {
@@ -222,6 +222,13 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    implementation(project(':react-native-maps')){
+       exclude group: 'com.google.android.gms', module: 'play-services-base'
+       exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
+    implementation 'com.google.android.gms:play-services-base:17.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

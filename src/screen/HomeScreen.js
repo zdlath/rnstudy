@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Button } from 'react-native';
 
-const HomeScreen = ({navigation}) => {  
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.screen}>
       <Button
@@ -10,12 +10,14 @@ const HomeScreen = ({navigation}) => {
       />
       <Button
         title="Go PassingParameterScreen"
-        onPress={() => navigation.navigate('PassingParameterScreen', {
-          fromScreenId: 1,
-          fromScreenName: 'HomeScreen',
-          otherParam: 'anything you want here',
-        })}
-      />    
+        onPress={() =>
+          navigation.navigate('PassingParameterScreen', {
+            fromScreenId: 1,
+            fromScreenName: 'HomeScreen',
+            otherParam: 'anything you want here',
+          })
+        }
+      />
       <Button
         title="Go PropsScreen"
         onPress={() => navigation.navigate('PropsScreen')}
@@ -24,7 +26,7 @@ const HomeScreen = ({navigation}) => {
         title="Go UseStateScreen"
         onPress={() => navigation.navigate('UseStateScreen')}
       />
-       <Button
+      <Button
         title="Go UseEffectScreen"
         onPress={() => navigation.navigate('UseEffectScreen')}
       />
@@ -39,27 +41,31 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Go UseCallbackScreen"
         onPress={() => navigation.navigate('UseCallbackScreen')}
-      />      
+      />
       <Button
         title="Go UseRefScreen1"
         onPress={() => navigation.navigate('UseRefScreen1')}
-      />         
+      />
       <Button
         title="Go UseRefScreen2"
         onPress={() => navigation.navigate('UseRefScreen2')}
-      /> 
+      />
       <Button
         title="Go ReduxScreen"
         onPress={() => navigation.navigate('ReduxScreen')}
-      />      
+      />
       <Button
         title="Go NativeModuleScreen"
         onPress={() => navigation.navigate('NativeModuleScreen')}
-      />      
+      />
       <Button
         title="Go EnvScreen"
         onPress={() => navigation.navigate('EnvScreen')}
-      />           
+      />
+      <Button
+        title="Go GoogleMapScreen"
+        onPress={() => navigation.navigate('GoogleMapScreen')}
+      />
     </View>
   );
 };

@@ -22,6 +22,7 @@ import { default as UseRefScreen2 } from "./src/screen/useref/UseRefScreen2";
 import { default as ReduxScreen } from "./src/screen/redux/ReduxScreen";
 import { default as NativeModuleScreen } from "./src/screen/nativemodule/NativeModuleScreen";
 import { default as EnvScreen } from "./src/screen//env/EnvScreen";
+import { default as GoogleMapScreen } from "./src/screen//googlemap/GoogleMapScreen";
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -32,8 +33,8 @@ function App() {
   //const store = createStore(rootReducer);
   const store = createStore(rootReducer, applyMiddleware(Middleware1, Middleware2));
 
-  //Provider 컴포넌트는 컴포넌트들이 Redux의 Store에 접근 가능하도록 해주는 컴포넌트입니다.  
-  //컴포넌트의 Root 위치에 Provider 컴포넌트로 감싸줍니다.  
+  //Provider 컴포넌트는 컴포넌트들이 Redux의 Store에 접근 가능하도록 해주는 컴포넌트입니다.
+  //컴포넌트의 Root 위치에 Provider 컴포넌트로 감싸줍니다.
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -52,6 +53,7 @@ function App() {
           <Stack.Screen name="ReduxScreen" component={ReduxScreen} />
           <Stack.Screen name="NativeModuleScreen" component={NativeModuleScreen} />
           <Stack.Screen name="EnvScreen" component={EnvScreen} />
+          <Stack.Screen name="GoogleMapScreen" component={GoogleMapScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
