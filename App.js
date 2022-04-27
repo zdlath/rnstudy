@@ -20,6 +20,7 @@ import { default as UseCallbackScreen } from "./src/screen/usecallback/UseCallba
 import { default as UseRefScreen1 } from "./src/screen/useref/UseRefScreen1";
 import { default as UseRefScreen2 } from "./src/screen/useref/UseRefScreen2";
 import { default as ReduxScreen } from "./src/screen/redux/ReduxScreen";
+import { default as ReduxActionScreen } from "./src/screen/redux/ReduxActionScreen";
 import { default as NativeModuleScreen } from "./src/screen/nativemodule/NativeModuleScreen";
 import { default as EnvScreen } from "./src/screen//env/EnvScreen";
 import { default as GoogleMapScreen } from "./src/screen//googlemap/GoogleMapScreen";
@@ -51,6 +52,7 @@ function App() {
           <Stack.Screen name="UseRefScreen1" component={UseRefScreen1} />
           <Stack.Screen name="UseRefScreen2" component={UseRefScreen2} />
           <Stack.Screen name="ReduxScreen" component={ReduxScreen} />
+          <Stack.Screen name="ReduxActionScreen" component={ReduxActionScreen} />
           <Stack.Screen name="NativeModuleScreen" component={NativeModuleScreen} />
           <Stack.Screen name="EnvScreen" component={EnvScreen} />
           <Stack.Screen name="GoogleMapScreen" component={GoogleMapScreen} />
