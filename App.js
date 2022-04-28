@@ -5,10 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
-import rootReducer from './src/redux/modules/rootReducer';
+import rootReducer, {rootSaga} from './src/redux/modules/rootReducer';
 import Middleware1 from './src/redux/middlewares/Middleware1';
 import Middleware2 from './src/redux/middlewares/Middleware2';
 import penderMiddleware from 'redux-pender';
+import createSagaMiddleware from 'redux-saga';
 import { default as HomeScreen } from "./src/screen/HomeScreen";
 import { default as NavigationScreen } from "./src/screen/navigation/NavigationScreen";
 import { default as PassingParameterScreen } from "./src/screen/passingparameter/PassingParameterScreen";
@@ -23,6 +24,7 @@ import { default as UseRefScreen2 } from "./src/screen/useref/UseRefScreen2";
 import { default as ReduxScreen } from "./src/screen/redux/ReduxScreen";
 import { default as ReduxActionScreen } from "./src/screen/redux/ReduxActionScreen";
 import { default as ReduxPenderScreen } from "./src/screen/redux/ReduxPenderScreen";
+import { default as ReduxSagaScreen } from "./src/screen/redux/ReduxSagaScreen";
 import { default as NativeModuleScreen } from "./src/screen/nativemodule/NativeModuleScreen";
 import { default as EnvScreen } from "./src/screen//env/EnvScreen";
 import { default as GoogleMapScreen } from "./src/screen//googlemap/GoogleMapScreen";
@@ -31,18 +33,28 @@ enableScreens();
 const Stack = createStackNavigator();
 
 function App() {
+  //SagaMiddleware를 생성합니다.
+  const sagaMiddleware = createSagaMiddleware();
+
   //creactStore() 함수를 이용하여 Store를 생성합니다.
   //rootReducer를 첫번째 파라미터로 전달하며, Middleware를 두번째 파라미터로 전달합니다.
   //const store = createStore(rootReducer);
   //const store = createStore(rootReducer, applyMiddleware(Middleware1, Middleware2));
-  const store = createStore(rootReducer, applyMiddleware(penderMiddleware()));
+  //const store = createStore(rootReducer, applyMiddleware(penderMiddleware()));
+  const store = createStore(
+    rootReducer,
+    applyMiddleware(penderMiddleware(), sagaMiddleware),
+  );
+
+  //rootSaga를 실행해줍니다.
+  sagaMiddleware.run(rootSaga);
 
   //Provider 컴포넌트는 컴포넌트들이 Redux의 Store에 접근 가능하도록 해주는 컴포넌트입니다.
   //컴포넌트의 Root 위치에 Provider 컴포넌트로 감싸줍니다.
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator  initialRouteName = "HomeScreen">
+        <Stack.Navigator initialRouteName="HomeScreen">
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="NavigationScreen" component={NavigationScreen} />
           <Stack.Screen name="PassingParameterScreen" component={PassingParameterScreen} />
@@ -57,6 +69,7 @@ function App() {
           <Stack.Screen name="ReduxScreen" component={ReduxScreen} />
           <Stack.Screen name="ReduxActionScreen" component={ReduxActionScreen} />
           <Stack.Screen name="ReduxPenderScreen" component={ReduxPenderScreen} />
+          <Stack.Screen name="ReduxSagaScreen" component={ReduxSagaScreen} />
           <Stack.Screen name="NativeModuleScreen" component={NativeModuleScreen} />
           <Stack.Screen name="EnvScreen" component={EnvScreen} />
           <Stack.Screen name="GoogleMapScreen" component={GoogleMapScreen} />

@@ -63,6 +63,10 @@ const HomeScreen = ({navigation}) => {
         onPress={() => navigation.navigate('ReduxPenderScreen')}
       />
       <Button
+        title="Go ReduxSagaScreen"
+        onPress={() => navigation.navigate('ReduxSagaScreen')}
+      />
+      <Button
         title="Go NativeModuleScreen"
         onPress={() => navigation.navigate('NativeModuleScreen')}
       />
