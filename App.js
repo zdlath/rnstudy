@@ -10,6 +10,7 @@ import Middleware1 from './src/redux/middlewares/Middleware1';
 import Middleware2 from './src/redux/middlewares/Middleware2';
 import penderMiddleware from 'redux-pender';
 import createSagaMiddleware from 'redux-saga';
+import {createLogger} from 'redux-logger';
 import { default as HomeScreen } from "./src/screen/HomeScreen";
 import { default as NavigationScreen } from "./src/screen/navigation/NavigationScreen";
 import { default as PassingParameterScreen } from "./src/screen/passingparameter/PassingParameterScreen";
@@ -36,6 +37,9 @@ function App() {
   //SagaMiddleware를 생성합니다.
   const sagaMiddleware = createSagaMiddleware();
 
+  //logger를 생성합니다.
+  const logger = createLogger();
+
   //creactStore() 함수를 이용하여 Store를 생성합니다.
   //rootReducer를 첫번째 파라미터로 전달하며, Middleware를 두번째 파라미터로 전달합니다.
   //const store = createStore(rootReducer);
@@ -43,7 +47,7 @@ function App() {
   //const store = createStore(rootReducer, applyMiddleware(penderMiddleware()));
   const store = createStore(
     rootReducer,
-    applyMiddleware(penderMiddleware(), sagaMiddleware),
+    applyMiddleware(penderMiddleware(), sagaMiddleware, logger),
   );
 
   //rootSaga를 실행해줍니다.
