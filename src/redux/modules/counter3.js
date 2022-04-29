@@ -27,6 +27,8 @@ function* decreaseSaga() {
   yield delay(1000);
   yield put(DECREASE3_ACTION());
 }
+
+//Watcher Saga 정의
 export function* counterSaga() {
   console.log('3. counterSaga 호출');
   yield takeEvery(INCREASE3_ASYNC_ACTION, increaseSaga);
