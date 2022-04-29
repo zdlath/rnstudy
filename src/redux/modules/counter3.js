@@ -4,12 +4,14 @@ import {delay, put, takeEvery, takeLatest} from 'redux-saga/effects';
 //Action 타입 정의
 const INCREASE3 = 'counter/INCREASE3';
 const DECREASE3 = 'counter/DECREASE3';
+//Saga Action 타입 정의
 const INCREASE3_ASYNC = 'counter/INCREASE3_ASYNC';
 const DECREASE3_ASYNC = 'counter/DECREASE3_ASYNC';
 
 //Action 생성 함수 정의
 export const INCREASE3_ACTION = createAction(INCREASE3);
 export const DECREASE3_ACTION = createAction(DECREASE3);
+//Saga Action 생성 함수 정의
 export const INCREASE3_ASYNC_ACTION = createAction(INCREASE3_ASYNC);
 export const DECREASE3_ASYNC_ACTION = createAction(DECREASE3_ASYNC);
 

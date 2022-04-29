@@ -41,6 +41,8 @@ function App() {
   //logger를 생성합니다.
   const logger = createLogger();
 
+  const flipperReduxDebugger = require('redux-flipper').default;
+
   //creactStore() 함수를 이용하여 Store를 생성합니다.
   //rootReducer를 첫번째 파라미터로 전달하며, Middleware를 두번째 파라미터로 전달합니다.
   //const store = createStore(rootReducer);
@@ -49,7 +51,12 @@ function App() {
   const store = createStore(
     rootReducer,
     composeWithDevTools(
-      applyMiddleware(penderMiddleware(), sagaMiddleware, logger),
+      applyMiddleware(
+        penderMiddleware(),
+        sagaMiddleware,
+        flipperReduxDebugger(),
+        logger,
+      ),
     ),
   );
 
