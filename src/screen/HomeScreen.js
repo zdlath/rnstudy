@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, View, Button } from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Button} from 'react-native';
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -77,6 +77,10 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Go GoogleMapScreen"
         onPress={() => navigation.navigate('GoogleMapScreen')}
+      />
+      <Button
+        title="Go LinkingScreen"
+        onPress={() => navigation.navigate('LinkingScreen')}
       />
     </View>
   );
